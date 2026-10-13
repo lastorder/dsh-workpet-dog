@@ -1,0 +1,6 @@
+# dsh-workpet-dog bundle layer: one row that registers the Pomeranian
+# appearance into the `ctx.workpet` capability. It needs the dsh-workpet
+# bundle; without it the Client half stays inactive.
+- insert:
+    - id: dsh-workpet-dog
+      name: dsh-workpet-dog

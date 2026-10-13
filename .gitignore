@@ -1,0 +1,6 @@
+node_modules/
+.pnpm-store/
+.preview-chrome*/
+*.tgz
+*.log
+.DS_Store

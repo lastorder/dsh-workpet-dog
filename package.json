@@ -1,0 +1,62 @@
+{
+  "name": "dsh-workpet-dog",
+  "version": "0.1.0",
+  "description": "A white Pomeranian appearance for the dsh-workpet capability in DeepSeek Harness.",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@11.22.0",
+  "icon": "./icon.svg",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "node --check client.js && node --check index.js && node --check scripts/preview.mjs",
+    "test": "node --test 'test/*.test.mjs'",
+    "verify": "node --check client.js && node --check index.js && node --check scripts/preview.mjs && node --test 'test/*.test.mjs'",
+    "preview": "node scripts/preview.mjs",
+    "prepublishOnly": "node --check client.js && node --check index.js && node --check scripts/preview.mjs && node --test 'test/*.test.mjs'"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "workpet",
+    "workpet-skin",
+    "dog",
+    "pomeranian"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "dsh-workpet"
+      ]
+    }
+  }
+}

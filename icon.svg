@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="wpd" viewBox="0 0 100 80" width="100%" height="100%" role="img" aria-label="白色小博美" focusable="false">
+      <defs>
+        <radialGradient id="fur-wpdpreview29-R0" cx="38%" cy="24%" r="80%">
+          <stop offset="0" stop-color="#ffffff"/><stop offset=".65" stop-color="#faf8f3"/><stop offset="1" stop-color="#e7e9e8"/>
+        </radialGradient>
+        <radialGradient id="face-wpdpreview29-R0" cx="45%" cy="30%" r="75%">
+          <stop offset="0" stop-color="#ffffff"/><stop offset=".78" stop-color="#faf8f3"/><stop offset="1" stop-color="#eef0eb"/>
+        </radialGradient>
+      </defs>
+
+      <g class="" style="transform-origin:49px 70px">
+        <g class="wpd-breathe" style="transform-origin:49px 70px">
+
+      <g transform="translate(65 52)">
+        <g class="wpd-wag" style="transform-origin:0px 6px">
+          <path d="M-3 9 C8 14 23 4 22 -8 Q27 -10 22 -14 Q25 -20 18 -20 Q17 -27 12 -22 Q6 -25 4 -19 Q-2 -20 -3 -14 C-5 -6 5 -3 10 -9 C10 -2 3 1 -3 0 Z"
+            fill="url(#fur-wpdpreview29-R0)" stroke="#b5bfc2" stroke-width="1.1" stroke-linejoin="round"/>
+          <path d="M10 -9 Q13 -14 10 -17 M16 -18 Q20 -10 15 -4" fill="none" stroke="#d5dcdb" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+
+      <path d="M35 43 Q29 48 31 55 L28 57 L31 60 Q28 68 36 70 L39 68 Q48 73 55 69 L59 71 Q69 69 68 61 L71 58 L68 55 Q69 46 61 42 Z"
+        fill="url(#fur-wpdpreview29-R0)" stroke="#b5bfc2" stroke-width="1.15" stroke-linejoin="round"/>
+      <path d="M40 49 Q49 45 59 49 Q59 60 51 65 L48 62 L44 65 Q38 59 40 49" fill="#ffffff" opacity=".85"/>
+      <path d="M33 57 l3 2 M63 56 l-3 3" fill="none" stroke="#d5dcdb" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <g transform="translate(41 65)">
+        <path d="M-4 -6 Q-6 -1 -6 2 Q-6 6 0 6 Q6 6 6 2 Q6 -2 4 -6" fill="url(#fur-wpdpreview29-R0)" stroke="#b5bfc2" stroke-width="1.05" stroke-linecap="round"/>
+        <path d="M-2 3 v2 M2 3 v2" fill="none" stroke="#d5dcdb" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g transform="translate(57 65)">
+        <path d="M-4 -6 Q-6 -1 -6 2 Q-6 6 0 6 Q6 6 6 2 Q6 -2 4 -6" fill="url(#fur-wpdpreview29-R0)" stroke="#b5bfc2" stroke-width="1.05" stroke-linecap="round"/>
+        <path d="M-2 3 v2 M2 3 v2" fill="none" stroke="#d5dcdb" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+
+      <path d="M37 49 Q49 54 62 49 L57 56 L50 61 L43 56 Z" fill="#8cc7b8" stroke="#5d9d90" stroke-width=".85" stroke-linejoin="round"/>
+      <path d="M42 53 l7 4 l9 -5" fill="none" stroke="#c8e5db" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="50" cy="56.6" r="1.8" fill="#e7be6c" stroke="#c59f59" stroke-width=".6"/>
+
+        <g transform="translate(49 32) rotate(0)">
+          <g class="">
+
+      <g transform="translate(-14 -11) rotate(0)">
+        <g class="wpd-ear" style="animation-delay:-1.4s">
+          <path d="M-7 6 Q-8 -2 -5 -13 Q-3 -15 0 -11 Q7 -5 8 5 Z" fill="url(#fur-wpdpreview29-R0)" stroke="#b5bfc2" stroke-width="1.1" stroke-linejoin="round"/>
+          <path d="M-4 1 Q-5 -4 -4 -9 Q0 -8 4 1 Q0 -1 -4 1" fill="#f3b5bd" opacity=".72"/>
+          <path d="M-4 2 l2 -2 l2 3 l2 -2" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+      <g transform="translate(14 -11) rotate(0)">
+        <g class="wpd-ear" style="animation-delay:0s">
+          <path d="M-7 6 Q-8 -2 -5 -13 Q-3 -15 0 -11 Q7 -5 8 5 Z" fill="url(#fur-wpdpreview29-R0)" stroke="#b5bfc2" stroke-width="1.1" stroke-linejoin="round"/>
+          <path d="M-4 1 Q-5 -4 -4 -9 Q0 -8 4 1 Q0 -1 -4 1" fill="#f3b5bd" opacity=".72"/>
+          <path d="M-4 2 l2 -2 l2 3 l2 -2" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+            <path d="M-20 -8 Q-19 -15 -10 -15 L-11 -18 L-6 -17 L-3 -20 L1 -17 L6 -19 L8 -16 Q18 -17 20 -9
+              L24 -7 L22 -3 L26 1 L23 4 L26 8 L22 10 Q22 16 16 16 L15 20 L10 19 L7 23 L2 21 L-2 24 L-6 21 L-11 22 L-13 19
+              Q-22 20 -22 13 L-26 11 L-24 7 L-27 4 L-23 1 L-25 -3 Z"
+              fill="url(#face-wpdpreview29-R0)" stroke="#b5bfc2" stroke-width="1.15" stroke-linejoin="round"/>
+            <path d="M-18 3 Q-15 -7 -7 -7 Q-3 -7 0 -3 Q3 -7 8 -7 Q17 -6 19 3 Q14 0 10 5 Q0 9 -10 5 Q-14 1 -18 3" fill="#ffffff" opacity=".9"/>
+            <path d="M-22 5 l4 -1 M-21 10 l4 -2 M18 4 l4 1 M17 9 l4 2 M-6 -13 l3 -2 l2 2" fill="none" stroke="#d5dcdb" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
+            <ellipse cx="-14" cy="8" rx="4.4" ry="2.3" fill="#f6c9ce" opacity=".5"/>
+            <ellipse cx="14" cy="8" rx="4.4" ry="2.3" fill="#f6c9ce" opacity=".5"/>
+            <g class="wpd-blink" style="transform-origin:0px 2px">
+        <ellipse cx="-8" cy="2" rx="3" ry="3.6" fill="#293238"/>
+        <ellipse cx="-7.7" cy="3.7" rx="1.7" ry=".9" fill="#65737b" opacity=".55"/>
+        <circle cx="-8.85" cy="0.8" r="1.1" fill="#ffffff"/>
+        <circle cx="-6.8" cy="3" r=".5" fill="#ffffff"/>
+
+        <ellipse cx="8" cy="2" rx="3" ry="3.6" fill="#293238"/>
+        <ellipse cx="8.3" cy="3.7" rx="1.7" ry=".9" fill="#65737b" opacity=".55"/>
+        <circle cx="7.15" cy="0.8" r="1.1" fill="#ffffff"/>
+        <circle cx="9.2" cy="3" r=".5" fill="#ffffff"/>
+        </g>
+            <ellipse cx="-4.2" cy="10" rx="6.5" ry="4.6" fill="#ffffff"/>
+            <ellipse cx="4.2" cy="10" rx="6.5" ry="4.6" fill="#ffffff"/>
+            <path d="M-4.5 11 Q0 14 4.5 11 Q4 19 0 19 Q-4 19 -4.5 11" fill="#525b60"/>
+              <path class="wpd-pant" d="M-2.8 14 Q0 13 2.8 14 L2.6 16.8 Q0 20 -2.6 16.8 Z" fill="#e991a4"/><path d="M0 14.5 v1.7" fill="none" stroke="#ce788e" stroke-width="0.65" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M-3.7 7 Q0 5.6 3.7 7 Q4.4 8.3 1 10.4 Q0 11 -1 10.4 Q-4.4 8.3 -3.7 7" fill="#293238"/>
+            <ellipse cx="-1" cy="7.5" rx="1.3" ry=".55" fill="#ffffff" opacity=".65"/>
+            <path d="M0 10 v1.7 M0 11.4 Q-2.3 14 -4.7 11.8 M0 11.4 Q2.3 14 4.7 11.8" fill="none" stroke="#525b60" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+
+          </g>
+        </g>
+
+
+        </g>
+      </g></svg>
