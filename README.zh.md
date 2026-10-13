@@ -4,41 +4,53 @@
 
 参考 `dsh-workpet-parrot` 的插件结构实现的 DeepSeek Harness **Work Pet** 皮肤：蓬松白毛、尖尖小耳朵、黑葡萄眼、粉色肉垫、背上的毛绒卷尾巴，以及一条薄荷绿小方巾。全部造型和动作重新绘制为 SVG。
 
+![白色小博美的动作图鉴](https://raw.githubusercontent.com/lastorder/dsh-workpet-dog/main/docs/pomeranian-poses.png)
+
+[English README](https://github.com/lastorder/dsh-workpet-dog/blob/main/README.md)
+
 ## 先看看小狗
 
-在源码目录运行：
+先下载或克隆[源码仓库](https://github.com/lastorder/dsh-workpet-dog)，再在源码目录运行：
 
 ```sh
 pnpm install
 pnpm run preview
 ```
 
-然后用浏览器打开 [动画预览页](<docs/preview.html>)。页面完全离线，不需要服务器或正在运行的 Harness：
+然后在浏览器中**本地打开** [动画预览页](https://github.com/lastorder/dsh-workpet-dog/blob/main/docs/preview.html)。也可以下载仓库 ZIP，解压后连同相邻源码文件一起在本地打开 `docs/preview.html`。GitHub 的 blob 链接只是源码查看页，不能直接交互预览。页面完全离线，不需要服务器或正在运行的 Harness：
 
 - 13 种状态的动画图鉴，点击卡片切换大图；
 - 点击大图摸摸脑袋；
 - 暂停动画、切换深浅背景；
 - 小伙伴的 `compact` 尺寸预览。
 
-预览直接加载真实的 [客户端插件](<client.js>)，没有另外维护一套绘图代码。生成命令同时更新 [插件图标](<icon.svg>)。预览页只演示外观，不接收真实会话状态，也不模拟 Harness 的拖拽和状态气泡。
+预览直接加载真实的 [客户端插件](https://github.com/lastorder/dsh-workpet-dog/blob/main/client.js)，没有另外维护一套绘图代码。生成命令同时更新 [插件图标](https://github.com/lastorder/dsh-workpet-dog/blob/main/icon.svg)。预览页只演示外观，不接收真实会话状态，也不模拟 Harness 的拖拽和状态气泡。
 
 ## 安装到 DeepSeek Harness
 
 需要在同一个 profile 中先安装并启用 **`dsh-workpet`**。它负责会话状态、悬浮位置、拖拽、点击摸摸、状态气泡、工具徽章、小伙伴和爱心等特效；本插件只注册小博美形象。
 
-在 Harness 会话中请 Agent 通过 `plugin_manager` 安装本目录：
+**首次发布到 npm 之前**，请从源码目录安装。在 Harness 会话中请 Agent 通过 `plugin_manager` 安装本目录：
 
 ```text
 install_bundle /absolute/path/to/dsh-workpet-dog
 ```
-
-安装或启用会修改整个 profile，需要确认授权。此项目没有自动执行安装，也不会替换现有的小猫或鹦鹉。启用后小博美作为独立宠物出现；停用本 bundle 即可移除。若缺少 `dsh-workpet`，本插件会等待依赖，不会独立显示宠物。
 
 CLI 管理的 profile 也可以使用：
 
 ```sh
 dsh plugin --profile <profile> add link:/absolute/path/to/dsh-workpet-dog
 ```
+
+**只有 `dsh-workpet-dog@0.1.0` 真正发布到 npm 之后**，才能让 Agent 用包名安装已发布的 bundle：
+
+```text
+install_bundle dsh-workpet-dog
+```
+
+CLI 管理的 profile 则可运行 `dsh plugin --profile <profile> add dsh-workpet-dog`。目前**尚不能使用 npm 安装途径**；准备仓库不等于发布。接收方通过包管理器安装此包不会运行开发、测试或预览脚本；`prepublishOnly` 验证脚本在手动 npm 发布时运行，不会在用户安装时运行。
+
+安装或启用会修改整个 profile，需要确认授权。此项目没有自动执行安装，也不会替换现有的小猫或鹦鹉。启用后小博美作为独立宠物出现；停用本 bundle 即可移除。若缺少 `dsh-workpet`，本插件会等待依赖，不会独立显示宠物。
 
 安装后可在 **插件 → Work Pet** 中查看形象卡并触发动作。修改链接安装的源码后刷新 Harness 页面；若仍使用旧内容，重启 Harness。这里没有内置 HMR 或开发服务器，也不需要开启另一个 Web 服务。
 
@@ -76,12 +88,12 @@ pnpm run preview   # 重新生成离线预览和图标
 
 | 文件 | 用途 |
 | --- | --- |
-| [client.js](<client.js>) | 调色板、身体部件、全部状态、CSS 动画和插件注册 |
-| [index.js](<index.js>) | 空的 Host 入口 |
-| [cordis.patch.yml](<cordis.patch.yml>) | bundle 的 Loader 注册项 |
-| [package.json](<package.json>) | bundle 声明、依赖顺序和开发命令 |
-| [中文文案](<locale/zh.json>) / [英文文案](<locale/en.json>) | 插件管理器元信息 |
-| [preview.mjs](<scripts/preview.mjs>) | 从真实插件生成离线动画图鉴与静态图标 |
+| [client.js](https://github.com/lastorder/dsh-workpet-dog/blob/main/client.js) | 调色板、身体部件、全部状态、CSS 动画和插件注册 |
+| [index.js](https://github.com/lastorder/dsh-workpet-dog/blob/main/index.js) | 空的 Host 入口 |
+| [cordis.patch.yml](https://github.com/lastorder/dsh-workpet-dog/blob/main/cordis.patch.yml) | bundle 的 Loader 注册项 |
+| [package.json](https://github.com/lastorder/dsh-workpet-dog/blob/main/package.json) | bundle 声明、依赖顺序和开发命令 |
+| [中文文案](https://github.com/lastorder/dsh-workpet-dog/blob/main/locale/zh.json) / [英文文案](https://github.com/lastorder/dsh-workpet-dog/blob/main/locale/en.json) | 插件管理器元信息 |
+| [preview.mjs](https://github.com/lastorder/dsh-workpet-dog/blob/main/scripts/preview.mjs) | 从真实插件生成离线动画图鉴与静态图标 |
 
 ### 绘图约定
 
@@ -95,6 +107,14 @@ pnpm run preview   # 重新生成离线预览和图标
 - 插件依赖 `workpet` / `locale`，样式、文案和皮肤都由 `ctx.effect` 管理，停用时清理。
 - 不重复实现 Work Pet 已提供的状态推导、气泡、徽章、伙伴或特效。
 
+## 发布清单（供所有者操作）
+
+**公开** GitHub 仓库 `lastorder/dsh-workpet-dog` 已创建；npm 包 `dsh-workpet-dog`（版本 `0.1.0`）**尚未发布**。未经所有者确认，不要执行 npm 发布。
+
+1. 发布前在源码目录执行 `pnpm install`、`pnpm run verify`、`npm pack --dry-run`，检查打包文件列表，并确认公开的 GitHub 仓库和发布工作流已经准备好。
+2. **仅首次发布到 npm**：所有者明确同意并完成身份验证后，运行 `npm login`，完成 npm 的双因素验证（2FA），再从验证过的源码目录**手动**运行 `npm publish --access public`。这是供日后授权操作的说明，不表示本文档已经执行发布。
+3. npm 包创建且所有者身份得到确认后，在 npm 为 GitHub 仓库 `lastorder/dsh-workpet-dog` 配置 **Trusted Publisher**，工作流文件名设为 `.github/workflows/release.yml`；若工作流使用 GitHub Actions environment，也须填写对应环境。发布工作流必须按**仅暂存（stage-only）**方式配置：之后的带注释版本标签在 CI 中暂存 npm 发布内容并创建 GitHub **预发布**；最终由所有者审核、手动批准 npm 正式发布，再将 GitHub Release 转为正式版。仅推送标签不能自动向 npm 正式上架。
+
 ## 致谢与许可
 
-插件结构参考 [dsh-workpet-parrot](https://github.com/lastorder/dsh-workpet-parrot)，遵循 [dsh-workpet](https://github.com/lastorder/dsh-workpet) 的 `WorkpetScene` / `WorkpetSkin` 契约。MIT 许可，保留原参考项目的版权声明，见 [LICENSE](<LICENSE>)。
+插件结构参考 [dsh-workpet-parrot](https://github.com/lastorder/dsh-workpet-parrot)，遵循 [dsh-workpet](https://github.com/lastorder/dsh-workpet) 的 `WorkpetScene` / `WorkpetSkin` 契约。MIT 许可，保留原参考项目的版权声明，见 [LICENSE](https://github.com/lastorder/dsh-workpet-dog/blob/main/LICENSE)。

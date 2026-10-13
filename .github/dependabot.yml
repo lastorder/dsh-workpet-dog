@@ -1,0 +1,26 @@
+version: 2
+
+updates:
+  # Keep GitHub Actions current; review changes to the SHA-pinned release action.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ['*']
+    commit-message:
+      prefix: 'ci'
+
+  # React is only used for test/preview, and must match Harness's major 18.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    ignore:
+      - dependency-name: react
+        update-types: ['version-update:semver-major']
+      - dependency-name: react-dom
+        update-types: ['version-update:semver-major']
+    commit-message:
+      prefix: 'build'

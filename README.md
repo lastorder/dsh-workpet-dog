@@ -4,7 +4,9 @@ A little cloud with paws: a **white Pomeranian** appearance for the DeepSeek Har
 
 Fluffy white fur, tiny pointed ears, shiny dark eyes, pink paw pads, a plumed curled tail, and a mint bandana. The plugin structure follows [dsh-workpet-parrot](https://github.com/lastorder/dsh-workpet-parrot); the puppy artwork and animations are newly drawn in SVG.
 
-[中文说明](<README.zh.md>)
+![White Pomeranian Work Pet pose gallery](https://raw.githubusercontent.com/lastorder/dsh-workpet-dog/main/docs/pomeranian-poses.png)
+
+[中文说明](https://github.com/lastorder/dsh-workpet-dog/blob/main/README.zh.md)
 
 ## Preview from a checkout
 
@@ -13,7 +15,7 @@ pnpm install
 pnpm run preview
 ```
 
-Open the generated [offline preview](<docs/preview.html>) in a browser. It loads the real artwork from [client.js](<client.js>) and includes all 13 animated poses, a clickable large puppy, pause/resume, light/dark backgrounds, and compact companions. No server or running Harness is needed. The command also regenerates the [plugin icon](<icon.svg>).
+Download or clone the [source repository](https://github.com/lastorder/dsh-workpet-dog), run the commands in its checkout, then open the generated [offline preview](https://github.com/lastorder/dsh-workpet-dog/blob/main/docs/preview.html) **as a local file** in a browser. You can also download the repository ZIP and open `docs/preview.html` locally with its neighboring source files; GitHub's blob page is a source view, not an interactive preview. The page loads the real artwork from [client.js](https://github.com/lastorder/dsh-workpet-dog/blob/main/client.js) and includes all 13 animated poses, a clickable large puppy, pause/resume, light/dark backgrounds, and compact companions. No server or running Harness is needed. The command also regenerates the [plugin icon](https://github.com/lastorder/dsh-workpet-dog/blob/main/icon.svg).
 
 This is an appearance preview, not a connection to a real session. Real dragging, session state and effects belong to Work Pet.
 
@@ -21,19 +23,27 @@ This is an appearance preview, not a connection to a real session. Real dragging
 
 Install and enable **`dsh-workpet`** in the same profile first. This prerequisite owns session state, floating pets, dragging, petting, bubbles, badges, companions, hearts and other effects. This package only contributes an appearance.
 
-Ask the Agent in a Harness session to use `plugin_manager`:
+**Until the first npm publication**, install from a checkout. Ask the Agent in a Harness session to use `plugin_manager`:
 
 ```text
 install_bundle /absolute/path/to/dsh-workpet-dog
 ```
-
-Installation changes the whole profile and requires approval. No installation is performed by this repository. Enabling the bundle adds a separate puppy alongside existing pets; disabling it removes the puppy. Without `dsh-workpet`, the skin waits for its dependency and does not display independently.
 
 CLI-managed profiles may instead use:
 
 ```sh
 dsh plugin --profile <profile> add link:/absolute/path/to/dsh-workpet-dog
 ```
+
+**After `dsh-workpet-dog@0.1.0` is actually published on npm**, ask the Agent to install the published bundle by package name:
+
+```text
+install_bundle dsh-workpet-dog
+```
+
+For a CLI-managed profile, use `dsh plugin --profile <profile> add dsh-workpet-dog`. This npm route is **not available yet**; merely preparing this repository does not publish the package. Installing the published package does not run its development/test/preview scripts in the receiving profile; the `prepublishOnly` verification script runs for a manual npm publish, not for package consumers.
+
+Installation changes the whole profile and requires approval. No installation is performed by this repository. Enabling the bundle adds a separate puppy alongside existing pets; disabling it removes the puppy. Without `dsh-workpet`, the skin waits for its dependency and does not display independently.
 
 After installation, **Plugins → Work Pet** provides appearance cards and activity buttons. After editing a linked checkout, refresh the Harness page; if stale content remains, restart Harness. This project does not run its own Web server or promise automatic HMR.
 
@@ -69,12 +79,12 @@ pnpm run preview   # Regenerate the offline gallery and static icon
 
 | File | Purpose |
 | --- | --- |
-| [client.js](<client.js>) | Palette, body parts, poses, CSS animations and disposable registration |
-| [index.js](<index.js>) | Empty Host entry |
-| [cordis.patch.yml](<cordis.patch.yml>) | Bundle Loader row |
-| [package.json](<package.json>) | Manifest, dependency ordering and development scripts |
-| [English metadata](<locale/en.json>) / [Chinese metadata](<locale/zh.json>) | Plugin Manager text |
-| [preview.mjs](<scripts/preview.mjs>) | Offline gallery and icon generation from the actual plugin |
+| [client.js](https://github.com/lastorder/dsh-workpet-dog/blob/main/client.js) | Palette, body parts, poses, CSS animations and disposable registration |
+| [index.js](https://github.com/lastorder/dsh-workpet-dog/blob/main/index.js) | Empty Host entry |
+| [cordis.patch.yml](https://github.com/lastorder/dsh-workpet-dog/blob/main/cordis.patch.yml) | Bundle Loader row |
+| [package.json](https://github.com/lastorder/dsh-workpet-dog/blob/main/package.json) | Manifest, dependency ordering and development scripts |
+| [English metadata](https://github.com/lastorder/dsh-workpet-dog/blob/main/locale/en.json) / [Chinese metadata](https://github.com/lastorder/dsh-workpet-dog/blob/main/locale/zh.json) | Plugin Manager text |
+| [preview.mjs](https://github.com/lastorder/dsh-workpet-dog/blob/main/scripts/preview.mjs) | Offline gallery and icon generation from the actual plugin |
 
 ### Artwork rules
 
@@ -88,6 +98,14 @@ pnpm run preview   # Regenerate the offline gallery and static icon
 - Styles, dictionaries and the skin are registered with `ctx.effect` and removed on disposal. Hard dependencies are `workpet` and `locale`.
 - Do not duplicate the Work Pet's status derivation, bubbles, badges, companions or effects.
 
+## Publication checklist (for the owner)
+
+The **public** GitHub repository is `lastorder/dsh-workpet-dog`. The npm package `dsh-workpet-dog` version `0.1.0` is **not published yet**. Do not publish without the owner's confirmation.
+
+1. Before any release, verify the checkout with `pnpm install`, `pnpm run verify` and `npm pack --dry-run`; inspect the tarball file list. Confirm the public GitHub repository and release workflow are ready.
+2. For the **one-time initial npm publication only**, after the owner explicitly approves and authenticates, run `npm login` (complete npm's 2FA challenge) and then manually run `npm publish --access public` from the verified package checkout. This is an instruction for a future authorized owner action, **not** an action performed by these docs.
+3. Once npm recognizes the package and its owner, configure **npm Trusted Publisher** for GitHub repository `lastorder/dsh-workpet-dog`, workflow filename `.github/workflows/release.yml`, and the appropriate GitHub Actions environment if the workflow uses one. The workflow must be configured for **stage-only** releases: a later annotated version tag stages/verifies the npm release in CI and creates a GitHub **prerelease**; the owner reviews and manually approves npm publication, then marks the GitHub Release as final. Do not let tag creation alone auto-publish to the npm registry.
+
 ## Credits and license
 
-Based on the plugin structure of [dsh-workpet-parrot](https://github.com/lastorder/dsh-workpet-parrot), following the `WorkpetScene` / `WorkpetSkin` contract from [dsh-workpet](https://github.com/lastorder/dsh-workpet). MIT; the reference copyright notice is retained in [LICENSE](<LICENSE>).
+Based on the plugin structure of [dsh-workpet-parrot](https://github.com/lastorder/dsh-workpet-parrot), following the `WorkpetScene` / `WorkpetSkin` contract from [dsh-workpet](https://github.com/lastorder/dsh-workpet). MIT; the reference copyright notice is retained in [LICENSE](https://github.com/lastorder/dsh-workpet-dog/blob/main/LICENSE).

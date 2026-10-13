@@ -1,0 +1,7 @@
+# package.json `files` is authoritative; this keeps development artifacts out.
+.github/
+test/
+scripts/
+docs/
+*.tgz
+.DS_Store

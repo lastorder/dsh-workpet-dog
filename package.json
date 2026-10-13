@@ -31,6 +31,14 @@
     "preview": "node scripts/preview.mjs",
     "prepublishOnly": "node --check client.js && node --check index.js && node --check scripts/preview.mjs && node --test 'test/*.test.mjs'"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lastorder/dsh-workpet-dog.git"
+  },
+  "homepage": "https://github.com/lastorder/dsh-workpet-dog#readme",
+  "bugs": {
+    "url": "https://github.com/lastorder/dsh-workpet-dog/issues"
+  },
   "keywords": [
     "dsh",
     "dsh-plugin",

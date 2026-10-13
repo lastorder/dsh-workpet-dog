@@ -1,0 +1,76 @@
+name: Release
+
+# Only for versions AFTER the initial manual npm publication and npm Trusted
+# Publisher setup. Tags stage a release; approval on npm requires a human.
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write # attach the tarball and release notes to a GitHub Release
+  id-token: write # npm OIDC Trusted Publisher credential for staging only
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the tagged commit
+        uses: actions/checkout@v7
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
+      - name: Install test dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify syntax, rendering and metadata
+        run: pnpm run verify
+
+      - name: Check tag matches package version
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          PACKAGE_VERSION="$(node -p "require('./package.json').version")"
+          if [ "$TAG_VERSION" != "$PACKAGE_VERSION" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match package version $PACKAGE_VERSION"
+            exit 1
+          fi
+
+      - name: Stage on npm using OIDC
+        # Configure npm Trusted Publisher for lastorder/dsh-workpet-dog and
+        # .github/workflows/release.yml with stage-only permission first.
+        # npm@latest supplies npm stage publish; no permanent npm token stored.
+        run: |
+          npm install -g npm@latest
+          npm stage publish
+
+      - name: Pack the GitHub Release asset
+        run: npm pack --ignore-scripts
+
+      - name: Read release notes from tagged commit
+        id: release_notes
+        run: |
+          {
+            echo 'body<<RELEASE_NOTES_EOF'
+            git log -1 --format=%B "$GITHUB_SHA"
+            echo ''
+            echo '---'
+            echo ''
+            echo 'Staged on npm and awaiting maintainer approval before installation: https://www.npmjs.com/package/dsh-workpet-dog?activeTab=versions'
+            echo 'RELEASE_NOTES_EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub prerelease pending npm approval
+        # Pin this third-party action to a full audited commit SHA.
+        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3.0.3
+        with:
+          body: ${{ steps.release_notes.outputs.body }}
+          files: '*.tgz'
+          prerelease: true
